@@ -1,0 +1,50 @@
+got (Tensor, Tensor, list, NoneType, int, float, bool, bool, bool)
+wanting:
+(Tensor data, Tensor batch_sizes, Tensor hx, tuple of Tensors params, bool has_biases, int num_layers, float dropout, bool train, bool bidirectional)
+
+
+
+didn't match because some of the arguments have invalid types: 
+(\x1b[32;1mTensor\x1b[0m, \x1b[32;1mTensor\x1b[0m, \x1b[31;1mlist of [Parameter, Parameter, Parameter, Parameter, Parameter, Parameter, Parameter, Parameter]\x1b[0m, \x1b[31;1mNoneType\x1b[0m, \x1b[31;1mint\x1b[0m, \x1b[31;1mfloat\x1b[0m, \x1b[31;1mbool\x1b[0m, \x1b[32;1mbool\x1b[0m, \x1b[32;1mbool\x1b[0m)\n * 
+
+(Tensor input, Tensor hx, tuple of Tensors params, bool has_biases, int num_layers, float dropout, bool train, bool bidirectional, bool batch_first)\n      
+
+didn't match because some of the arguments have invalid types: 
+
+(\x1b[32;1mTensor\x1b[0m, \x1b[32;1mTensor\x1b[0m, \x1b[31;1mlist of [Parameter, Parameter, Parameter, Parameter, Parameter, Parameter, Parameter, Parameter]\x1b[0m, \x1b[31;1mNoneType\x1b[0m, \x1b[32;1mint\x1b[0m,")
+
+
+%%capture
+!git clone https://github.com/speechbrain/benchmarks
+%cd /content/benchmarks
+!git checkout eeg
+
+%cd /content/benchmarks/benchmarks/MOABB
+!pip install -r extra-requirements.txt
+
+
+%%capture
+# Clone SpeechBrain repository (development branch)
+%cd /content/
+!git clone https://github.com/speechbrain/speechbrain/
+%cd /content/speechbrain/
+
+# Install required dependencies
+!pip install -r requirements.txt
+
+# Install SpeechBrain in editable mode
+!pip install -e .
+
+%cd /content/benchmarks/benchmarks/MOABB
+
+%cd /content/benchmarks/benchmarks/MOABB
+!pip install -r ../../requirements.txt    # Install base dependencies
+!pip install -r extra-requirements.txt  
+
+!python train.py hparams/MotorImagery/BNCI2014001/CRDNN_V1.yaml --data_folder=eeg_data  --cached_data_folder=eeg_pickled_data --output_folder=results/MotorImagery/BNCI2014001/ --target_subject_idx=0 --target_session_idx=1 --data_iterator_name=leave-one-session-out
+if hasattr(mod, "bias"):
+                if (mod.bias is not None) and (not isinstance(mod.bias, bool)):
+                    init.constant_(mod.bias, 0)
+
+
+!./run_experiments.sh --hparams hparams/MotorImagery/BNCI2014001/EEGNet_RNN.yaml --data_folder eeg_data --output_folder results/MotorImagery/BNCI2014001/EEGNet --nsbj 9 --nsess 2 --nruns 1 --train_mode leave-one-session-out
