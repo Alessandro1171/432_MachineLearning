@@ -1,4 +1,0 @@
-speechbrain.utils.train_logger - epoch loaded: 862 - test loss: -1.82e-01, test f1: 2.66e-01, test acc: 3.04e-01, test cm: [[10  3  1  0]
- [10  3  0  1]
- [10  0  3  1]
- [ 8  0  5  1]]

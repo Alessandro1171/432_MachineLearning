@@ -1,0 +1,19 @@
+---- leave-one-session-out ----
+0train acc 0.7076 ± 0.0961
+1test acc 0.7041 ± 0.0958
+
+Aggregated results
+acc 0.7058256172839507 +- 0.0017361111111110494
+Final Results (Performance Aggregation)
+
+
+---- leave-one-session-out ----
+
+0train acc [0.707600] avg: 0.707600 ± 0.000000 
+1test acc [0.704100] avg: 0.704100 ± 0.000000 
+
+
+Aggregated results
+
+acc [0.705826] avg: 0.705826 ± 0.000000 
+[{'name': 'objective', 'type': 'objective', 'value': 0.29417438271604934}]
