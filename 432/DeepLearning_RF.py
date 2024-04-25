@@ -257,6 +257,6 @@ class DeepLearning_RF(torch.nn.Module):
         x : torch.Tensor (batch, time, EEG channel, channel)
             Input to convolve. 4d tensors are expected.
         """
-        x = self.dl_module(x)
+        x = self.dlr_module(x)
         x = self.dense_module(x)
         return x
