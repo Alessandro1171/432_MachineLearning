@@ -1,9 +1,10 @@
-"""EEGNet from https://doi.org/10.1088/1741-2552/aace8c.
-Shallow and lightweight convolutional neural network proposed for a general decoding of single-trial EEG signals.
-It was proposed for P300, error-related negativity, motor execution, motor imagery decoding.
+"""
+Based on the deep learning model Deep learning Reshape Filtering it adds three deep conv layers with growing filters and reduced kernels 
+to reduce data dimensionality and find accurate patterns
+Trained on EEG brain imagery data to make predictions on new matrices data and predict which movement the brain is trying to communicate
 
 Authors
- * Davide Borra, 2021
+ * Alessandro Dare, 2024
 """
 import torch
 import speechbrain as sb
