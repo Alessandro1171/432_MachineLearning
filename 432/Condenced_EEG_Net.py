@@ -1,9 +1,7 @@
-"""EEGNet from https://doi.org/10.1088/1741-2552/aace8c.
-Shallow and lightweight convolutional neural network proposed for a general decoding of single-trial EEG signals.
-It was proposed for P300, error-related negativity, motor execution, motor imagery decoding.
-
+"""Based on the EEG Net model but with condensed temporal deep learning the model 
+trains itself on eeg brain imagery data to classify other matrices to one of the four movements
 Authors
- * Davide Borra, 2021
+ * Alessandro Dare, 2024
 """
 import numpy as np
 import matplotlib.pyplot as plt
