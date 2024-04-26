@@ -77,12 +77,7 @@ class CRDNN_V3(torch.nn.Module):
         crdnn_spatial_kernels = (
             crdnn_spatial_depth_multiplier * crdnn_temporal_kernels
         )
-        print("crdnn_temporal_kernels:",crdnn_temporal_kernels)
-        print("crdnn_spatial_depth_multiplier:",crdnn_spatial_depth_multiplier)
-        print("crdnn_spatial_kernels:",crdnn_spatial_kernels)
-        print("mulitplaction:",(crdnn_spatial_kernels *rnn_multiplier1))
-        print("hidden size",hidden_size1,"END")
-        print("wejngfkewbgfesbgfsdbnfjbsdjklgbf wejkf gwjdbfmjewhjrfnjkhfewjkgtfbhwbgsudbn")
+        
         self.crdnn_module1.add_module(
             "conv_1",
             sb.nnet.CNN.Conv2d(
@@ -123,9 +118,7 @@ class CRDNN_V3(torch.nn.Module):
         hidden_size1 = (
            round(crdnn_spatial_kernels * rnn_multiplier1)
         )
-        print("crdnn_spatial_kernels:",crdnn_spatial_kernels)
-        print("mulitplaction:",(crdnn_spatial_kernels *rnn_multiplier1))
-        print("hidden size",hidden_size1,"END")
+
         if rnn_type == "lstm":
             self.crdnn_module1.add_module(
                 "RNN_1",
